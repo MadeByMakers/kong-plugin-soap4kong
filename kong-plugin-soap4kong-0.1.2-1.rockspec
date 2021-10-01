@@ -1,13 +1,13 @@
 package = "kong-plugin-soap4kong"
 
-version = "0.1.1-1"
+version = "0.1.2-1"
 
 local pluginName = package:match("^kong%-plugin%-(.+)$")  -- "soap4kong"
 
 supported_platforms = {"linux", "macosx"}
 source = {
   url = "git://github.com/MadeByMakers/kong-plugin-soap4kong",
-  tag = "0.1.1"
+  tag = "0.1.2"
 }
 
 description = {
@@ -17,9 +17,8 @@ description = {
 }
 
 dependencies = {
-  "lua >= 5.1",
-  "kong-cjson >= 2.1.0.6-1",
-  "xml2lua >= 1.4-3",
+  "lua-cjson >= 2.1.0.6-1",
+  "xml2lua >= 1.5-2",
   "lua-resty-template >= 2.0-1"
 }
 
