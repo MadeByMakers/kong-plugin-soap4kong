@@ -6,8 +6,8 @@ local pluginName = package:match("^kong%-plugin%-(.+)$")  -- "soap4kong-generato
 
 supported_platforms = {"linux", "macosx"}
 source = {
-  url = "https://github.com/MadeByMakers/kong-plugin-soap4kong",
-  tag = "0.1.0-1"
+  url = "git://github.com/MadeByMakers/kong-plugin-soap4kong",
+  tag = "0.1.0"
 }
 
 description = {
@@ -18,7 +18,7 @@ description = {
 
 dependencies = {
   "lua ~> 5.1",
-  "lua-cjson >= 2.1.0.6-1",
+  "kong-cjson >= 2.1.0.6-1",
   "xml2lua >= 1.4-3",
   "lyaml >= 6.2.7-1",
   "multipart >= 0.5.9-1",
