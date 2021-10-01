@@ -4,7 +4,7 @@ local soap4kongGenerator = BasePlugin:extend()
 
 -- set the plugin priority, which determines plugin execution order (Default: 2001)
 soap4kongGenerator.PRIORITY = 2001
-soap4kongGenerator.VERSION = "0.1.0-1"
+soap4kongGenerator.VERSION = "0.1.1-1"
 
 string.startswith = function(self, str)
     return self:find('^' .. str) ~= nil

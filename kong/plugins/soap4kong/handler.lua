@@ -7,7 +7,7 @@ local soap4kong = BasePlugin:extend()
 
 -- set the plugin priority, which determines plugin execution order (Default: 2001)
 soap4kong.PRIORITY = 2001
-soap4kong.VERSION = "0.1.0-1"
+soap4kong.VERSION = "0.1.1-1"
 
 local function getPathArgs()
     local url = kong.request.get_path()

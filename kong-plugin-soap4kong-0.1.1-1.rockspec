@@ -1,13 +1,13 @@
 package = "kong-plugin-soap4kong"
 
-version = "0.1.0-1"
+version = "0.1.1-1"
 
 local pluginName = package:match("^kong%-plugin%-(.+)$")  -- "soap4kong"
 
 supported_platforms = {"linux", "macosx"}
 source = {
   url = "git://github.com/MadeByMakers/kong-plugin-soap4kong",
-  tag = "0.1.0"
+  tag = "0.1.1"
 }
 
 description = {
