@@ -1,0 +1,8 @@
+runreport = false;
+modules = {
+   ["soap4kong.*"] = "kong/plugins",
+   ["soap4kongGenerator.*"] = "kong/plugins"
+}
+exclude = {
+    "puremagic"
+}
