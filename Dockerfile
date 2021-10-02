@@ -2,7 +2,7 @@ FROM kong as builder
 
 USER root
 
-RUN apk add --no-cache git zip libxml2 gcc && \
+RUN apk add --no-cache git zip && \
     git config --global url.https://github.com/.insteadOf git://github.com/
 
 COPY . /plugins/soap4kong
@@ -10,16 +10,14 @@ COPY . /plugins/soap4kong
 WORKDIR /plugins/soap4kong/
 
 ENV LUAROCKS_SOAP4KONG=kong-plugin-soap4kong
-ENV LUAROCKS_SOAP4KONG_VERSION=0.1.2-1
+ENV LUAROCKS_SOAP4KONG_GENERATOR=kong-plugin-soap4kong-generator
+ENV LUAROCKS_SOAP4KONG_VERSION=0.1.3-1
 
-RUN luarocks make kong-plugin-soap4kong-0.1.2-1.rockspec && \
+RUN luarocks make kong-plugin-soap4kong-${LUAROCKS_SOAP4KONG_VERSION}.rockspec && \
     luarocks pack ${LUAROCKS_SOAP4KONG} ${LUAROCKS_SOAP4KONG_VERSION}
 
-ENV LUAROCKS_SOAP4KONG_GENERATOR=kong-plugin-soap4kong-generator
-ENV LUAROCKS_SOAP4KONG_GENERATOR_VERSION=0.1.2-1
-
-RUN luarocks make kong-plugin-soap4kong-generator-0.1.2-1.rockspec && \
-    luarocks pack ${LUAROCKS_SOAP4KONG_GENERATOR} ${LUAROCKS_SOAP4KONG_GENERATOR_VERSION}
+RUN luarocks make kong-plugin-soap4kong-generator-${LUAROCKS_SOAP4KONG_VERSION}.rockspec && \
+    luarocks pack ${LUAROCKS_SOAP4KONG_GENERATOR} ${LUAROCKS_SOAP4KONG_VERSION}
 
 FROM kong
 

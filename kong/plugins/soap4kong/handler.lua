@@ -1,13 +1,15 @@
 local BasePlugin = require "kong.plugins.base_plugin"
+
 local xml2lua = require "xml2lua"
 local handler = require "xmlhandler.tree"
-local cjson = require('cjson')
+local cjson = require "cjson"
 local template = require "resty.template"
+
 local soap4kong = BasePlugin:extend()
 
 -- set the plugin priority, which determines plugin execution order (Default: 2001)
 soap4kong.PRIORITY = 2001
-soap4kong.VERSION = "0.1.2-1"
+soap4kong.VERSION = "0.1.3-1"
 
 local function getPathArgs()
     local url = kong.request.get_path()
